@@ -1,0 +1,16 @@
+{% extends "encyclopedia/layout.html" %}
+
+{% block title %}
+    Encyclopedia
+{% endblock %}
+
+{% block body %}
+    <h1>All Related Entries</h1>
+
+    <ul>
+        {% for entry in entries %}
+        <li> <a href="{% url 'encyclopedia:funct' entry%}">{{entry}}</a> </li>
+        {% endfor %}
+    </ul>
+    
+{% endblock %}

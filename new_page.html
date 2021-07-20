@@ -1,0 +1,25 @@
+{% extends "encyclopedia/layout.html" %}
+{%load static%}
+{%load widget_tweaks%}
+
+{% block title %}
+    New Page
+{% endblock %}
+
+{% block body %}
+<h1>New Page</h1>
+<form action = "{%url 'encyclopedia:newpage'%}" method="POST">
+  {% csrf_token %}
+  <div style="margin-top: 40px; ">
+  <p>Title:</p>
+  {{form.title | add_class:"form-control"}}
+  </div>
+  <div style="margin-top: 25px;">
+  <p>Text:</p>
+  {{form.text | add_class:"form-control form-control-sm "}}
+  </div>
+  <div style="margin-top:25px">
+  <input type="Submit" >
+  </div>
+</form>
+{% endblock %}
